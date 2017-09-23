@@ -12,3 +12,7 @@ docker-build:
 docker-push:
 	docker tag $(DOCKER_USER)/$(DOCKER_NAME) $(DOCKER_USER)/$(DOCKER_NAME):$(DOCKER_TAG)
 	docker push $(DOCKER_USER)/$(DOCKER_NAME)
+
+.PHONY:
+docker-run:
+	docker run -it -v $$PWD:$$PWD -w $$PWD $(DOCKER_USER)/$(DOCKER_NAME)
